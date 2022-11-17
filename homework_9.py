@@ -17,7 +17,7 @@ def error_handler(func):
 @error_handler
 def add_user(args):
     name, phone = args
-    if USERS.get(name) == None:
+    if name not in USERS:
         USERS[name] = phone
         return f"User {name} added"
     return f'{name} alredy in contact book'
@@ -39,7 +39,7 @@ def show_number(args):
 def show_all(_):
     result = ""
     for name, phone in USERS.items():
-        result += f"{name}: {phone} "
+        result += f"{name} : {phone }\n" 
     return result
 
 def hello(_):
